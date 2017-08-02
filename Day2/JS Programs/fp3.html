@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateyear() {
+    var x = document.forms["myForm"]["year"].value;
+    if (x == "" || x.length>4 || x.length<4) 
+	{
+        alert("enter a valid year");
+        return false;
+    	}
+    else
+	{
+	var c1=x%4;
+		if(c1==0)
+		{
+		alert("It is leap year");
+		}
+		else
+		{
+		alert("Not a leap year");
+		}
+	}
+
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" onsubmit="validateyear()" method="post">
+Year: <input type="text" name="year">
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

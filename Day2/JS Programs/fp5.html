@@ -1,0 +1,29 @@
+<html>
+<body>
+<button onclick="harmon()">Read N</button>
+<p id="fp5">
+</body>
+<head>
+<script>
+function harmon()
+{
+   var n=prompt("enter the N value", "");
+   var v=0;
+	if(n!=0)
+	{
+	for(var i=1; i<=n; i++)
+		{
+		v+=1/i;
+		}
+	alert("Harmon Series for "+n+" is "+v);
+	}
+	else
+	{
+	alert("N cannot be null value");
+	}
+
+}
+</script>
+</head>
+</html>
+

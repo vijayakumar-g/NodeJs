@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>	Read the name from user </p>
+<button onclick="read()">Read</button>
+<P id="f1"</p>
+<script>
+function read()
+{
+ var username=prompt("please enter your name", "");
+if(username != null && username.length>=3)
+{
+document.getElementById("f1").innerHTML="Hello "+username+" How are you?";
+}
+else
+{
+document.getElementById("f1").innerHTML="Char is less than 3";
+}
+}
+</script>
+</body>
+</html>
+
+
+
