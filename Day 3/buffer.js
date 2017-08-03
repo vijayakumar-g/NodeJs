@@ -1,0 +1,12 @@
+var buf=new Buffer(10);
+buf.write("I'm Vijay");
+var b=new Buffer("INTELLECT");
+var cob=new Buffer(10);
+b.copy(cob);
+console.log(cob.toString());
+var y=b.compare(cob);
+console.log(y);
+var json=buf.toJSON(buf);
+var json1=b.toJSON(b);
+console.log(json);
+console.log(json1);
