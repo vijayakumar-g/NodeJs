@@ -1,5 +1,5 @@
 var arr = [4, 12, 2, 3, 40];
-var x = 40;
+var x = +process.argv[2];
 var size = arr.length;
 var binary_search = function(arr, l, r, x) {
   if (r >= l) {

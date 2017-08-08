@@ -1,5 +1,6 @@
 var arr = ["vijay", "aniketh", "bharathi", "akash", "deba"];
-var x = "bharathi";
+var x = process.argv.slice(2);
+console.log(x);
 var size = arr.length;
 arr.sort();
 console.log(arr);
