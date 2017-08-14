@@ -30,8 +30,3 @@ var x = Math.floor(y0+y0/4-y0/100 + y0/400);
 var m0 = Math.floor(m + 12 * ((14 - m) / 12) - 2);
 var day = Math.floor((d + x + (31*m0)/12) % 7);
 console.log("the week of given date "+d+"/"+m+"/"+y+":"+week[day]+"-"+month[m]);
-
-// d=2+ ((153 * (month + 12 * ((14 - month) / 12) - 3) + 2) / 5)+
-// (365 * (year + 4800 -((14-month) / 12)))+ ((year + 4800 - ((14 - month) / 12)) / 4)-
-// ((year + 4800 - ((14 - month) /12)) / 100)+ ((year + 4800 - ((14 - month) / 12)) / 400)- 32045;
-//
