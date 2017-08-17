@@ -15,11 +15,9 @@ function dequeue() {
 /*adding the element to the node at front at first
  checking whether the node add to be the first node of the element else
  traverse the nodes and insert it*/
-dequeue.enqueueAtFront = function(value)
-{
+dequeue.enqueueAtFront = function(value) {
   var node = new Node(value);
-  if (dequeue.rear == null)
-  {
+  if (dequeue.rear == null) {
     dequeue.rear = node;
     dequeue.front = node;
   } else {
@@ -31,11 +29,9 @@ dequeue.enqueueAtFront = function(value)
 /*adding the element to the node at rear
 checking whether the node add to be the first node of the element
 else traverse adnd insert it */
-dequeue.enqueueAtRear = function(value)
-{
+dequeue.enqueueAtRear = function(value) {
   var node = new Node(value);
-  if (dequeue.rear == null)
-  {
+  if (dequeue.rear == null) {
     dequeue.rear = node;
     dequeue.front = node;
   } else {

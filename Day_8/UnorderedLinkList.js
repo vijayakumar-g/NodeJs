@@ -18,8 +18,7 @@ and print them in output txt file*/
 unorderedList.output = function() {
   var ws = fs.createWriteStream("output.txt");
   currentNode = this.head;
-  while (currentNode)
-  {
+  while (currentNode) {
     var data = currentNode.value;
     var space = " ";
     ws.write(data, 'UTF8');
@@ -29,17 +28,14 @@ unorderedList.output = function() {
   ws.end();
 }
 /*display the node elements in the unordered list */
-unorderedList.display = function()
-{
+unorderedList.display = function() {
   currentNode = this.head;
   //checking for empty node
-  if (currentNode == null)
-  {
+  if (currentNode == null) {
     console.log("Node is Empty");
   }
   //checking for node to be not null
-  while (currentNode)
-  {
+  while (currentNode) {
     console.log(currentNode.value);
 
     currentNode = currentNode.next;
@@ -54,8 +50,7 @@ unorderedList.popAtPos = function(pos) {
   var afterNode = null;
   var count = 1;
   //checking for the position where the element to be pop
-  while (count != pos)
-  {
+  while (count != pos) {
     beforeNode = currentNode;
     currentNode = currentNode.next;
     count++;
@@ -69,8 +64,7 @@ and counting when traverse through each node*/
 unorderedList.size = function() {
   currentNode = this.head;
   var count = 0;
-  while (currentNode.next)
-  {
+  while (currentNode.next) {
     count++;
     currentNode = currentNode.next;
   }
@@ -82,11 +76,9 @@ to find the index of that value*/
 unorderedList.indexof = function(value) {
   currentNode = this.head;
   var count = 0;
-  while (currentNode != null)
-  {
+  while (currentNode != null) {
     count++;
-    if (currentNode.value == value)
-    {
+    if (currentNode.value == value) {
       console.log("Index of Element: " + value + " is in the List is :" + count);
       break;
     }
@@ -96,18 +88,15 @@ unorderedList.indexof = function(value) {
 }
 /*adding the new element to list if list empty then create new else
 traverse the list till the last and insert /add it*/
-unorderedList.add = function(value)
-{
+unorderedList.add = function(value) {
   var node = new Node(value);
   currentNode = this.head;
-  if (currentNode == null)
-  {
+  if (currentNode == null) {
     this.head = node;
     this.len++;
     return node;
   }
-  while (currentNode.next)
-  {
+  while (currentNode.next) {
     currentNode = currentNode.next;
   }
   currentNode.next = node;
@@ -141,8 +130,7 @@ unorderedList.remove = function(value) {
   var removeNode = null;
   var beforeNodeDelete = null;
   currentNode = this.head;
-  if (currentNode.value == value)
-  {
+  if (currentNode.value == value) {
     this.head = currentNode.next;
     removeNode = currentNode;
 
@@ -151,8 +139,7 @@ unorderedList.remove = function(value) {
     console.log("removed node:" + removeNode.value);
   } else {
     //traversing till the value to be found
-    while (currentNode.value != value)
-    {
+    while (currentNode.value != value) {
       beforeNodeDelete = currentNode;
       currentNode = currentNode.next;
     }
@@ -169,10 +156,8 @@ else add the element to the list*/
 unorderedList.search = function(value) {
   var flag = 0;
   currentNode = this.head;
-  while (currentNode != null)
-  {
-    if (currentNode.value == value)
-    {
+  while (currentNode != null) {
+    if (currentNode.value == value) {
       flag = 1;
       console.log("Element:" + value + " found");
       console.log("Removing:")

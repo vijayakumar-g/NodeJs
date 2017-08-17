@@ -4,8 +4,7 @@ var value = "(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
 var top = 0;
 
 //pushing of the character into stack array
-function pushing(top, exp)
-{
+function pushing(top, exp) {
   if (exp != null) {
     stack[top] = exp;
   }
@@ -30,17 +29,15 @@ for (i = 0; i < value.length; i++) {
     var pvalue = "{"; //then the opening of this spl character should be popped out
     top--; //decrementing the top
     console.log(stack);
-  } else if (value[i] == "]")
-  {
+  } else if (value[i] == "]") {
     var pvalue = "[";
     popping(top, pvalue);
     top--;
     console.log(stack);
-  } else if (value[i] == ")")
-  {
+  } else if (value[i] == ")") {
     var pvalue = "(";
     popping(top, pvalue);
-    top--; 
+    top--;
     console.log(stack);
   }
 }

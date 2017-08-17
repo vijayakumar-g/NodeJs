@@ -1,3 +1,56 @@
+'use strict'
+var buy = [];
+var sell = [];
+var d = new Date();
+class StockAccount {
+  constructor(name) {
+    this.name = name;
+  }
+
+  valueOf(value) {
+    this.value = value;
+  }
+
+  buy(amount, symbol) {
+    console.log("Buying the Share symbol: " + symbol + " for " + amount);
+    buy.push(symbol + " time:" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ",Date: " + d.getDate());
+    this.value = this.value - amount;
+  }
+
+  sell(amount, symbol) {
+    console.log("Selling the Share symbol: " + symbol + " for " + amount);
+    sell.push(symbol + " time:" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ",Date: " + d.getDate() + " ");
+    for (var i = 0; i < buy.length; i++) {
+      if (buy[i] == symbol) {
+        delete buy[i];
+        break;
+      }
+    }
+    this.value = this.value + amount;
+  }
+
+  printReport() {
+    console.log("\tStock Account Inventory");
+    console.log("Account Name     : " + this.name);
+    this.valueOf(10000000);
+    console.log("Account Balance  : " + this.value);
+    console.log("------------------------------");
+    this.buy(200000, "$-TCS");
+    this.buy(300000, "₹-Infosys");
+    this.buy(400000, "€-Intellect");
+    console.log("------------------------------");
+    console.log("Shares in Account: " + buy);
+    console.log("------------------------------");
+    this.sell(300000, "$-TCS");
+    console.log("------------------------------");
+    console.log("Shares Sold      : " + sell);
+    console.log("------------------------------");
+    console.log("Account Balance  : " + this.value);
+  }
+
+}
+var object = new StockAccount("Polaris");
+object.printReport();
 
 /*creating a node for the linklist function*/
 function Node(data) {
@@ -9,69 +62,36 @@ function linkedlist() {
   this.head = null;
 }
 
-function company_list(data)
-  {
-    this.share_name=data;
-  }
+function company_list(data) {
+  this.share_name = data;
+}
+
 
 /*display the node elements in the ordered list */
-linkedlist.prototype.display = function()
- {
-   console.log("\n List of Company Shares :");
-  currentNode = this.head;
-  while (currentNode.next)
-  {
+linkedlist.prototype.display = function() {
+  console.log("\n\t List of Company Shares ");
+  var currentNode = this.head;
+  while (currentNode.next) {
     console.log(currentNode.value.share_name);
     currentNode = currentNode.next;
   }
-  console.log(currentNode.value);
+  console.log(currentNode.value.share_name);
 }
 
 /*adding the new element to list if list empty then create new else
 traverse the list till the last and insert /add it*/
-linkedlist.prototype.add = function(value)
-{
+linkedlist.prototype.add = function(value) {
   var node = new Node(value);
-  currentNode = this.head;
-  if (currentNode == null)
-  {
+  var currentNode = this.head;
+  if (currentNode == null) {
     this.head = node;
     return node;
   }
-  while (currentNode.next)
-  {
+  while (currentNode.next) {
     currentNode = currentNode.next;
   }
   currentNode.next = node;
-  // document.write("Added");
   return node;
-}
-
-
-
-/*check for the first element of the node to be deleted else
-traversing till the value to be found and then deleting it*/
-linkedlist.prototype.remove = function(value) {
-  var removeNode = null;
-  var beforeNodeDelete = null;
-  currentNode = this.head;
-  if (currentNode.value == value) //
-  {
-    this.head = currentNode.next; //changing the head to the next
-    removeNode = currentNode; //removing the current node
-    currentnode = null; // current node is assigned to be null
-    console.log("remove the company share:" + removeNode.value.share_name+ "from list");
-  } else {
-    while (currentNode.value != value)
-    {
-      beforeNodeDelete = currentNode;
-      currentNode = currentNode.next;
-    }
-    beforeNodeDelete.next = currentNode.next;
-    removeNode = currentNode;
-    currentNode = null;
-    console.log("remove the company share:" + removeNode.value.share_name+ "from list");
-  }
 }
 
 /*check for the element that is being search
@@ -79,26 +99,16 @@ and find the element if it is found then delete the element
 else add the element to the list*/
 linkedlist.prototype.search = function(value) {
 
-  currentNode = this.head;
-  while (currentNode != null)
-  {
-    if (currentNode.value == value)
-    {
+  var currentNode = this.head;
+  while (currentNode != null) {
+    if (currentNode.value == value) {
       console.log("Element:" + value + " found");
-      console.log("Removing:")
-      orderedList.remove(value);
       break;
     }
     currentNode = currentNode.next;
   }
 }
-var list_of_company_shares=new linkedlist();
-var share1=new company_list("Hindustan Ltd");
-var share2=new company_list("Reliance Pvt ");
+var list_of_company_shares = new linkedlist();
+var share1 = new company_list(object.name);
 list_of_company_shares.add(share1);
-list_of_company_shares.add(share2);
-var share3=process.argv.slice(2);
-list_of_company_shares.add(share3);
-list_of_company_shares.display();
-list_of_company_shares.remove(share2);
 list_of_company_shares.display();

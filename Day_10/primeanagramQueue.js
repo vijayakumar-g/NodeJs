@@ -16,18 +16,18 @@ var arr = new Array(50);
 for (i = 2; i < 1000; i++) {
   if (isPrime(i) == true) {
     arr[i] = i;
-    }
+  }
 }
 var size = arr.length;
-var arr2=[];
-var agram=new Array(1000);
+var arr2 = [];
+var agram = new Array(1000);
 anagram(arr, size);
 var x, y;
 /*reads the two strings and check for the anagram condition
 if it is satisfied then one string is the anagram of the other */
 function anagram(arr, size) {
   var flag;
-  var x=0;
+  var x = 0;
 
   for (i = 0; i < size; i++) {
     if (arr[i] > 10) {
@@ -39,7 +39,7 @@ function anagram(arr, size) {
         var c = Math.floor(no2 / 10);
         var d = no2 - c * 10;
         if (a == d && b == c) {
-        agram[x]=arr[j];
+          agram[x] = arr[j];
           x++;
           break;
 
@@ -48,7 +48,7 @@ function anagram(arr, size) {
         }
       }
     }
-        if (arr[i] > 100) {
+    if (arr[i] > 100) {
       var no1 = arr[i];
       var a = Math.floor(no1 / 100);
       var b = no1 - a * 100;
@@ -71,7 +71,7 @@ function anagram(arr, size) {
         var a3 = arr2[2];
         arr2 = [];
         if ((a == a1) && (c == a2) && (d == a3)) {
-          agram[x]=arr[j];
+          agram[x] = arr[j];
           x++;
           break;
         } else {
@@ -87,22 +87,18 @@ function Node(data) {
   this.next = null;
 }
 
-function queue()
-{
-  this.rear =0;
-  this.front=0;
+function queue() {
+  this.rear = 0;
+  this.front = 0;
 }
 /*display elements in the node if it is empty
 then display empty node else traverse till the lst and print the values*/
-queue.display = function()
-{
+queue.display = function() {
   currentNode = this.front;
-  if (currentNode == null)
-  {
+  if (currentNode == null) {
     console.log("Node is Empty");
   }
-  while (currentNode!=this.rear)
-  {
+  while (currentNode != this.rear) {
     console.log(currentNode.value);
 
     currentNode = currentNode.next;
@@ -112,51 +108,42 @@ queue.display = function()
 /*enqueue is function in queue to add the element to the queue
 and the element added should like a queue format so whenever
 new element is inserted it should be wait in the queue*/
-queue.enqueue=function(data)
-{
-  var node=new Node(data);
-  if(this.rear==null)
-  {
-    this.rear=node;
-    this.front=this.rear;
+queue.enqueue = function(data) {
+  var node = new Node(data);
+  if (this.rear == null) {
+    this.rear = node;
+    this.front = this.rear;
+  } else {
+    this.rear.next = node;
+    node.value = data;
+    this.rear = node;
   }
-  else {
-      this.rear.next=node;
-      node.value=data;
-      this.rear=node;
-      }
 }
 /*dequeue function is used to remove the element the in the queue
 the first person who enters the queue will leave first
 is done in this dequeue*/
-queue.dequeue=function(i)
-{
-  if(this.rear==null)
-  {
+queue.dequeue = function(i) {
+  if (this.rear == null) {
     console.log("Queue Node is empty");
+  } else {
+    currentNode = this.front;
+    this.front = currentNode.next;
+    console.log(currentNode.value + " is leaving queue " + i);
+    delete(currentNode);
   }
-  else {
-  currentNode=this.front;
-  this.front=currentNode.next;
-  console.log(currentNode.value+" is leaving queue "+i);
-  delete(currentNode);
-    }
 }
-var inserted_count=0;
+var inserted_count = 0;
 
-for(i=0; i<50; i++)
-{
-if(agram[i]!=null)
-{
-  inserted_count++;
-queue.enqueue(agram[i]);
-}
+for (i = 0; i < 50; i++) {
+  if (agram[i] != null) {
+    inserted_count++;
+    queue.enqueue(agram[i]);
+  }
 }
 console.log("Anagrams Inserted in the Queue list");
 queue.display();
 console.log("----------------------------------------------------------");
 console.log("Anagrams that are printed in Reverse order by pop in Queue");
-for(i=0; i<inserted_count; i++)
-{
-  queue.dequeue(i+1);
+for (i = 0; i < inserted_count; i++) {
+  queue.dequeue(i + 1);
 }

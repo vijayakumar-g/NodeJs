@@ -23,8 +23,7 @@ and print them in output txt file*/
 orderedList.output = function() {
   var ws = fs.createWriteStream("ooutput.txt");
   currentNode = this.head;
-  while (currentNode)
-  {
+  while (currentNode) {
     var data = currentNode.value;
     var space = ",";
     console.log(data);
@@ -39,7 +38,7 @@ orderedList.display = function() {
   currentNode = this.head;
   while (currentNode.next) {
     console.log(currentNode.value);
-      currentNode = currentNode.next;
+    currentNode = currentNode.next;
   }
   console.log(currentNode.value);
 
@@ -48,18 +47,15 @@ orderedList.display = function() {
 
 /*adding the new element to list if list empty then create new else
 traverse the list till the last and insert /add it*/
-orderedList.add = function(value)
-{
+orderedList.add = function(value) {
   var node = new Node(value);
   currentNode = this.head;
-  if (currentNode == null)
-  {
+  if (currentNode == null) {
     this.head = node;
     this.len++;
     return node;
   }
-  while (currentNode.next)
-  {
+  while (currentNode.next) {
     currentNode = currentNode.next;
   }
   currentNode.next = node;
@@ -83,8 +79,7 @@ orderedList.remove = function(value) {
     this.len--;
     console.log("removed node:" + removeNode.value);
   } else {
-    while (currentNode.value != value)
-    {
+    while (currentNode.value != value) {
       beforeNodeDelete = currentNode;
       currentNode = currentNode.next;
     }
@@ -104,10 +99,8 @@ else add the element to the list*/
 orderedList.search = function(value) {
   var flag = 0;
   currentNode = this.head;
-  while (currentNode != null)
-  {
-    if (currentNode.value == value)
-    {
+  while (currentNode != null) {
+    if (currentNode.value == value) {
       flag = 1;
       console.log("Element:" + value + " found");
       console.log("Removing:")

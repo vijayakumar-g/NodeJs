@@ -16,18 +16,18 @@ var arr = new Array(50);
 for (i = 2; i < 1000; i++) {
   if (isPrime(i) == true) {
     arr[i] = i;
-    }
+  }
 }
 var size = arr.length;
-var arr2=[];
-var agram=new Array(1000);
+var arr2 = [];
+var agram = new Array(1000);
 anagram(arr, size);
 var x, y;
 /*reads the two strings and check for the anagram condition
 if it is satisfied then one string is the anagram of the other */
 function anagram(arr, size) {
   var flag;
-  var x=0;
+  var x = 0;
 
   for (i = 0; i < size; i++) {
     if (arr[i] > 10) {
@@ -39,7 +39,7 @@ function anagram(arr, size) {
         var c = Math.floor(no2 / 10);
         var d = no2 - c * 10;
         if (a == d && b == c) {
-        agram[x]=arr[j];
+          agram[x] = arr[j];
           x++;
           break;
 
@@ -48,7 +48,7 @@ function anagram(arr, size) {
         }
       }
     }
-        if (arr[i] > 100) {
+    if (arr[i] > 100) {
       var no1 = arr[i];
       var a = Math.floor(no1 / 100);
       var b = no1 - a * 100;
@@ -71,7 +71,7 @@ function anagram(arr, size) {
         var a3 = arr2[2];
         arr2 = [];
         if ((a == a1) && (c == a2) && (d == a3)) {
-          agram[x]=arr[j];
+          agram[x] = arr[j];
           x++;
           break;
         } else {
@@ -87,70 +87,56 @@ function Node(data) {
   this.next = null;
 }
 /*creating a stack objects*/
-function stack()
-{
-  this.top =0;
+function stack() {
+  this.top = 0;
 }
 /*display elements in the node if it is empty
 then display empty node else traverse till the lst and print the values*/
-stack.display = function()
-{
+stack.display = function() {
   currentNode = this.top;
-  if (currentNode == null)
-  {
+  if (currentNode == null) {
     console.log("Node is Empty");
   }
-  while (currentNode)
-  {
+  while (currentNode) {
     console.log(currentNode.value);
 
     currentNode = currentNode.next;
   }
 }
 //pushing of the element into stack array
-stack.pushing=function(data)
-{
-  var node=new Node(data);
-  if (this.top== null)
-    {
-    this.top=node;
-    }
-    else
-    {
-      node.next=this.top;
-      this.top=node;
-    }
+stack.pushing = function(data) {
+  var node = new Node(data);
+  if (this.top == null) {
+    this.top = node;
+  } else {
+    node.next = this.top;
+    this.top = node;
+  }
 }
 //making the last inserted element to be deleting it from the array
-stack.popping=function()
-{
-currentNode=this.top;
-if(this.top==null)
-{
-  console.log("Stack is empty");
+stack.popping = function() {
+  currentNode = this.top;
+  if (this.top == null) {
+    console.log("Stack is empty");
+  } else {
+    console.log(currentNode.value);
+    currentNode = this.top.next;
+    delete(this.top);
+    this.top = currentNode;
+  }
 }
-else {
-  console.log(currentNode.value);
-  currentNode=this.top.next;
-  delete(this.top);
-  this.top=currentNode;
-}
-}
-var inserted_count=0;
+var inserted_count = 0;
 
-for(i=0; i<50; i++)
-{
-if(agram[i]!=null)
-{
-  inserted_count++;
-stack.pushing(agram[i]);
-}
+for (i = 0; i < 50; i++) {
+  if (agram[i] != null) {
+    inserted_count++;
+    stack.pushing(agram[i]);
+  }
 }
 console.log("Anagrams Inserted in the Stack list");
 stack.display();
 console.log("----------------------------------------------------------");
 console.log("Anagrams that are printed in Reverse order by pop in Stack");
-for(i=0; i<inserted_count; i++)
-{
+for (i = 0; i < inserted_count; i++) {
   stack.popping();
 }

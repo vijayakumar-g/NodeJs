@@ -23,13 +23,12 @@ for (var i = 0; i < 10; i++) {
 for (i = 2; i < 1000; i++) {
   if (isPrime(i) == true) {
     arr[i] = i;
-    }
+  }
 }
 
 var x = 0;
 //allocating the prime values in the 1d array into the 2d array
-for (var i = 0; i < 10; i++)
-{
+for (var i = 0; i < 10; i++) {
   for (var j = 0; j < 100; j++) {
     prime_array[i][j] = arr[x];
     x++;
