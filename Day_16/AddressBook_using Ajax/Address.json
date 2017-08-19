@@ -1,0 +1,12 @@
+{
+  "Address": [{
+      "fname": "vijay",
+      "lname":"kumar",
+      "address": "tirunelveli",
+      "city": "palayamkottai",
+      "state":"tamilnadu",
+      "zip":"627002",
+      "mobile":"9750786991"
+  }
+]
+}
