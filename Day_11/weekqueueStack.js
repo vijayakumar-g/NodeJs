@@ -49,6 +49,10 @@ function calendar() {
     this.rear = 0;
     this.front = 0;
   }
+
+  /*enqueue is function in queue to add the element to the queue
+  and the element added should like a queue format so whenever
+  new element is inserted it should be wait in the queue*/
   queue.prototype.enqueue = function(d) {
     var node = new Node(d);
     if (this.rear == null) {
@@ -61,6 +65,10 @@ function calendar() {
     }
     document.write(this.rear.obj.top.obj.date + "&emsp;&emsp;");
   }
+
+  /*dequeue function is used to remove the element the in the queue
+  the first person who enters the queue will leave first
+  is done in this dequeue*/
   queue.prototype.dequeue = function() {
     if (stack1 == null) {
       console.log("queue is empty");
@@ -82,6 +90,7 @@ function calendar() {
     this.day = d;
     this.date = da;
   }
+  //pushing of the element into stack array
   stack.prototype.pushing = function(data) //pushing of the character
   {
     var node = new Node(data);
@@ -92,6 +101,8 @@ function calendar() {
       this.top = node;
     }
   }
+
+  //making the last inserted element to be deleting it from the array
   stack.prototype.popping = function() {
     currentNode = this.top;
     if (this.top == null) {

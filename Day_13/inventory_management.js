@@ -20,11 +20,12 @@ inventoryManager();
 /* InventoryManager will call each Inventory Object in its list
 to calculate the Inventory Price and then call the inventory Object to return the
 JSON String.*/
-    function inventoryManager() {
-      data = JSON.parse(fs.readFileSync(file));
-      console.log("                      Inventory Details:\n");
-      inventory_factory(name, weight, price_per_kg);
-    }
+function inventoryManager() {
+  data = JSON.parse(fs.readFileSync(file));
+  console.log(data);
+  console.log("                      Inventory Details:\n");
+  inventory_factory(name, weight, price_per_kg);
+}
 
 /*InventoryFactory to create Inventory
 Object from  JSON.*/

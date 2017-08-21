@@ -1,3 +1,5 @@
+/* function is used to calculate the price of each the stock and
+and display the stock value of user */
 function value_of_each_stock(array) {
   for (i = 0; i < array.length; i++) {
     document.write("Share Name:" + array[i][0] + "<br>");
@@ -11,6 +13,7 @@ function value_of_each_stock(array) {
   }
 }
 
+/*total stock value of the user is calculated */
 function total_stock_value(array) {
   var total = 0;
   for (i = 0; i < array.length; i++) {
@@ -18,7 +21,8 @@ function total_stock_value(array) {
   }
   document.write("Total Stock Value of " + array.length + " persons are :" + total);
 }
-
+/*creating the stock value for each user and
+they are stored it in a array*/
 function create_stock() {
   var number_of_stocks = document.getElementById("stock_no").value;
   var stock = [];

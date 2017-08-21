@@ -1,5 +1,6 @@
 var fs = require("fs");
 var ws = fs.createWriteStream("output.txt");
+//array with key-pairs to store the elements in the respective index
 var hmap = {
   0: 0,
   1: 0,
@@ -22,36 +23,34 @@ function Node(data) {
 function LinkedList() {
   this.head = null;
 }
-
-LinkedList.prototype.add = function(value) //addin the element to the node
-{
+/*adding the new element to list if list empty then create new else
+traverse the list till the last and insert /add it*/
+LinkedList.prototype.add = function(value) {
   var node = new Node(value);
   currentNode = this.head;
-  if (currentNode == null) // checking whether the node add to be the first node of the element
-  {
+  if (currentNode == null) {
     this.head = node;
     return node;
   }
-  while (currentNode.next) //if not first element then traverse till the last insert at that position
-  {
+  while (currentNode.next) {
     currentNode = currentNode.next;
   }
   currentNode.next = node;
-  //  console.log(node.value);
   return node;
 }
+/*display the node elements in the list */
 LinkedList.prototype.display = function() {
   currentNode = this.head;
   while (currentNode) {
     if (currentNode.value == null) break;
     else {
-      var v = currentNode.value;
+      var value = currentNode.value;
       console.log(currentNode.value);
       currentNode = currentNode.next;
 
     }
   }
-  return v;
+  return value;
 }
 for (i = 0; i < 11; i++) {
   hmap[i] = new LinkedList();
@@ -66,6 +65,5 @@ for (i = 0; i < size; i++) {
 for (i = 0; i < 11; i++) {
   console.log("map[" + i + "]")
   hmap[i].display();
-  //ws.write(toString(h),'UTF8');	
   console.log("\n")
 }

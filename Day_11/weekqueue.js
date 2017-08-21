@@ -61,6 +61,7 @@ function calendar() {
   document.write("<br>" + monthExp[m] + " " + y);
   document.write("<br>sun&emsp;&ensp;mon&emsp;&ensp;tue&emsp;&ensp;wed&emsp;&ensp;thur&emsp;&ensp;fri&emsp;&ensp;sat <br>");
 
+  /*creating a node*/
   function Node(d) {
     this.obj = d;
     this.next = null;
@@ -70,11 +71,15 @@ function calendar() {
     this.rear = 0;
     this.front = 0;
   }
-
+  /*weekdays is a function that contains the value such as day and date*/
   function week_withdays(d, da) {
     this.day = d;
     this.date = da;
   }
+
+  /*enqueue is function in queue to add the element to the queue
+  and the element added should like a queue format so whenever
+  new element is inserted it should be wait in the queue*/
   queue.prototype.enqueue = function(d) {
     var node = new Node(d);
     if (this.rear == null) {

@@ -2,21 +2,25 @@
 var buy = [];
 var sell = [];
 var d = new Date();
+
+/*class is creating the stock Account of each user
+and its constructor class to name the stock account user
+and defined with some methods*/
 class StockAccount {
   constructor(name) {
     this.name = name;
   }
-
+  /*value of each user is initialized*/
   valueOf(value) {
     this.value = value;
   }
-
+  /*the stock buy by the user*/
   buy(amount, symbol) {
     console.log("Buying the Share symbol: " + symbol + " for " + amount);
     buy.push(symbol);
     this.value = this.value - amount;
   }
-
+  /*the stock value sold by the user*/
   sell(amount, symbol) {
     console.log("Selling the Share symbol: " + symbol + " for " + amount);
     sell.push(symbol);
@@ -35,7 +39,7 @@ class StockAccount {
     this.valueOf(10000000);
     console.log("Account Balance  : " + this.value);
     console.log("------------------------------");
-    }
+  }
 
 }
 var object = new StockAccount("Microsoft");
@@ -97,7 +101,7 @@ function symbols(data) {
   this.symbol = data;
 }
 stack.prototype.display = function() {
-    var currentNode = this.top;
+  var currentNode = this.top;
   if (currentNode == null) {
     console.log("Node is Empty");
   }
@@ -137,10 +141,12 @@ stack.prototype.popping = function(company) {
 
 var stock_symbols = new stack();
 var companys_transactions = new linkedlist();
+/*pushing the company list to the linklist */
 var company1 = new company_list(object.name);
 object.buy(200000, "$-TCS");
 object.buy(300000, "₹-Infosys");
 object.buy(400000, "€-Intellect");
+/*pushing the Purchased stock symbols into stack*/
 stock_symbols.pushing(buy);
 companys_transactions.add(company1, stock_symbols);
 companys_transactions.display();
