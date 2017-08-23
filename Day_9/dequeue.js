@@ -1,4 +1,4 @@
-var value = "appa";
+var value =process.argv.splice(2);
 var size = value.length;
 var flag = 0;
 
@@ -48,10 +48,13 @@ for (i = 0, j = size - 1; i <= size, j >= 0; i++, j--) {
     continue;
     flag == 0;
   } else {
-    console.log(value + " is not a palindrome");
+    flag=1;
     break;
   }
 }
 if (flag == 0) {
   console.log(value + " is a palindrome ");
+}
+else {
+  console.log(value + " is not a palindrome");
 }

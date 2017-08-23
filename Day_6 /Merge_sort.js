@@ -3,7 +3,7 @@ var text=fs.readFileSync("input.txt").toString("utf8");
 var arr=text.split(",");
 console.log(arr);
 
-/*finding the mid element and solit the array into left sub-array 
+/*finding the mid element and solit the array into left sub-array
 and right sub-array*/
 
 function mergeSort(arr)
@@ -17,7 +17,7 @@ function mergeSort(arr)
 
     return merge(mergeSort(left), mergeSort(right));
 }
-/* sorting the element left wise and right wise 
+/* sorting the element left wise and right wise
 using their the respective subarray*/
 function merge(left,right)
 {

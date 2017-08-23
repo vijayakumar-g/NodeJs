@@ -1,6 +1,7 @@
 //creating a stack array so that the characters are pushed and popped
 var stack = new Array();
-var value = "(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
+// var value=process.argv.splice(2);
+var value = "(([5+6])})";
 var top = 0;
 
 //pushing of the character into stack array

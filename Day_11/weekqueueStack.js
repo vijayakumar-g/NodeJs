@@ -129,6 +129,7 @@ function calendar() {
   var mon = Math.floor(((26 * (m + 1)) / 10) + year);
   var d = mon + 1;
   var day = Math.ceil(d % 7);
+  console.log(day);
   //for the array no of week of the month week is taken in an account
   var dd = month[m];
   var w = dd % 7;
@@ -141,24 +142,34 @@ function calendar() {
   var qweek = new queue();
   for (var i = 0; i <= weeks; i++) {
 
-    for (var j = 0; j < 7; j++) {
+    for (var j = 0; j < 7; j++)
+     {
       if (j < day) //to print the space value here my space value= 0 is taken to display in proper manner
       {
-        var weekday = new week_withdays(week[j], "00");
+        console.log("coming");
+        document.write("&emsp;&emsp;&emsp;");
+        //var weekday = new week_withdays(week[j], "00");
 
-      } else {
-        if ((start <= month[m] + 1)) {
-          if (start <= 9) {
-            var weekday = new week_withdays(week[j], "0" + start);
-          } else {
-            var weekday = new week_withdays(week[j], start);
-          }
-          start++;
-
-        }
       }
-      stack1.pushing(weekday);
-      qweek.enqueue(stack1);
+      else if ((start != month[m] + 1))
+        {
+          if (start <= 9)
+          {
+            console.log(start);
+            var weekday = new week_withdays(week[j], "0" + start);
+          }
+           else
+           {
+             console.log(start);
+            var weekday = new week_withdays(week[j], start);
+           }
+          start++;
+          stack1.pushing(weekday);
+          qweek.enqueue(stack1);
+        }
+      else { break;}
+
+
     }
     document.write("<br>");
     day = 0;

@@ -9,6 +9,7 @@ function flip() {
   for (i = 0; i < number; i++) {
     //random function is called randomly the coin is tossed
     var random_m = Math.random();
+    console.log(random_m);
     //checking for the condition to claculate the randomness of coin flip
     if (random_m < 0.5) {
       //tails count

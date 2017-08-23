@@ -7,7 +7,7 @@ var week={
   5:"friday",
   6:"saturday"
 }
-var month={
+var months={
   1:"jan",
   2:"feb",
   3:"mar",
@@ -26,8 +26,8 @@ var date=+process.argv[2];
 var month=+process.argv[3];
 var year=+process.argv[4];
 
-var y0 = Math.floor(y-(14-m)/12);
+var y0 = Math.floor(year-(14-month)/12);
 var x = Math.floor(y0+y0/4-y0/100 + y0/400);
-var m0 = Math.floor(m + 12 * ((14 - m) / 12) - 2);
-var day = Math.floor((d + x + (31*m0)/12) % 7);
-console.log("the week of given date "+d+"/"+m+"/"+y+":"+week[day]+"-"+month[m]);
+var m0 = Math.floor(month + 12 * ((14 - month) / 12) - 2);
+var day = Math.floor((date + x + (31*m0)/12) % 7);
+console.log("the week of given date "+date+"/"+month+"/"+year+":"+week[day]+"-"+months[month]);

@@ -9,7 +9,7 @@ var week = {
   6: "saturday"
 }
 // month array has the no of days for each month that has
-var month = {
+var months = {
   1: 31,
   2: 28,
   3: 30,
@@ -48,9 +48,10 @@ var m0 = Math.floor(month + 12 * ((14 - month) / 12) - 3);
 var day = Math.floor((2 + ((153 * (m0) + 2) / 5) + (365 * x) - 32045));
 day = day % 7;
 //for the array no of week of the month week is taken in an account
-var dd = month[m];
+var dd = months[month];
 var week = dd % 7;
 var weeks = week + 1;
+console.log(weeks);
 //creating a array with the 2d to display the calendar
 var cal = new Array(weeks);
 
@@ -59,8 +60,8 @@ for (i = 0; i <= weeks; i++) {
 }
 var c = 0;
 var start = 1;
-console.log("javascript calender:" + m + " " + y)
-console.log("" + monthExp[m] + " " + y);
+console.log("javascript calender:" + month + " " + year)
+console.log("" + monthExp[month] + " " + year);
 console.log("      su    m    t     w     th    fr    sa ");
 //creating the for loop store the weeks
 for (var i = 0; i <= weeks; i++) {
@@ -70,7 +71,7 @@ for (var i = 0; i <= weeks; i++) {
     {
       cal[i][j] = " 0";
     } else {
-      if ((start <= month[m])) {
+      if ((start <= months[month])) {
         if (start < 9) //to start the letters with single digit make it as two digit in calendar
         {
           cal[i][j] = "0" + start;

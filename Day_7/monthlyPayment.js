@@ -18,4 +18,4 @@ var payment = function(Principal, Year, Rate) {
 
 var result = payment(Principal, Year, Rate);
 console.log("-------------------------------")
-console.log("Payment amount :" + result; //displaying result;
+console.log("Payment amount :" + result); //displaying result;

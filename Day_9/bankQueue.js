@@ -1,7 +1,7 @@
 var queue = new Array();
 var rear = -1;
 var front = -1;
-var bankbalance = 500000;
+var bankbalance = 500000;//dynamic
 /*enqueue is function in queue to add the element to the queue
 and the element added should like a queue format so whenever
 new element is inserted it should be wait in the queue
@@ -26,11 +26,11 @@ function enqueue(id, name, amount) {
       rear = rear + 1;
       front = front + 1;
       queue[front] == name;
-      bankbalance = bankbalance + parseInt(amount);
+      bankbalance = bankbalance - parseInt(amount);
     } else {
       front = front + 1;
       queue[front] = name;
-      bankbalance = bankbalance + parseInt(amount);
+      bankbalance = bankbalance - parseInt(amount);
     }
   }
 }

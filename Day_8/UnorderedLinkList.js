@@ -176,7 +176,10 @@ unorderedList.search = function(value) {
 for (i = 0; i < size; i++) {
   unorderedList.add(comma_sep[i]);
 }
-unorderedList.search("bharathi");
-unorderedList.search("krish");
-unorderedList.display(Node);
-unorderedList.output();
+var read=process.argv.splice(2);
+// unorderedList.search(read);
+// unorderedList.search(read);
+// unorderedList.display(Node);
+unorderedList.insertAtPos("suyesh",4);
+unorderedList.remove("vijay");
+unorderedList.display();
