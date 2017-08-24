@@ -101,21 +101,19 @@ function calendar() {
     for (var j = 0; j < 7; j++) {
       if (j < day) //to print the space value here my space value= 0 is taken to display in proper manner
       {
-        var weekday = new week_withdays(week[j], "00");
+        document.write("&emsp;&emsp;&emsp;");
 
-      } else {
-        if ((start <= month[m] + 1)) {
-          if (start <= 9) {
-            var weekday = new week_withdays(week[j], "0" + start);
-          } else {
+      } else if ((start != month[m] + 1)) {
+        if (start <= 9) {
+          var weekday = new week_withdays(week[j], "0" + start);
+        } else {
 
-            var weekday = new week_withdays(week[j], start);
-          }
-          start++;
-
+          var weekday = new week_withdays(week[j], start);
         }
+        start++;
+        Week.enqueue(weekday);
       }
-      Week.enqueue(weekday);
+
     }
     document.write("<br>");
     day = 0;

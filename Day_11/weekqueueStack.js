@@ -120,17 +120,26 @@ function calendar() {
   document.write("javascript calender:" + m + " " + y);
   document.write("<br>" + monthExp[m] + " " + y);
   document.write("<br>sun&emsp;&ensp;mon&emsp;&ensp;tue&emsp;&ensp;wed&emsp;&ensp;thur&emsp;&ensp;fri&emsp;&ensp;sat <br>");
-
-
   var cc = Math.floor(y / 100);
+  // console.log("cc:"+cc);
   var yy = y % 100;
-  var c = Math.floor((cc / 4) - (2 * cc) - 1);
+  // console.log("yy:"+yy);
+  var c1 = cc / 4;
+  // console.log("c1:"+c1);
+
+  var c2 = (2 * cc);
+  // console.log("c2:"+c2);
+  var c3 = c1 - c2;
+  // console.log("c3:"+c3);
+  var c = (c1 - c2 - 1);
+  // console.log("c:"+c);
   var year = Math.floor(5 * (yy / 4) + c);
+  // console.log("year"+year);
   var mon = Math.floor(((26 * (m + 1)) / 10) + year);
-  var d = mon + 1;
-  var day = Math.ceil(d % 7);
-  console.log(day);
-  //for the array no of week of the month week is taken in an account
+  // console.log("mon"+mon);
+  var d = mon;
+  var day = Math.ceil((d) % 7);
+  // console.log(day);
   var dd = month[m];
   var w = dd % 7;
   var weeks = w + 2;
@@ -142,32 +151,27 @@ function calendar() {
   var qweek = new queue();
   for (var i = 0; i <= weeks; i++) {
 
-    for (var j = 0; j < 7; j++)
-     {
+    for (var j = 0; j < 7; j++) {
       if (j < day) //to print the space value here my space value= 0 is taken to display in proper manner
       {
-        console.log("coming");
-        document.write("&emsp;&emsp;&emsp;");
-        //var weekday = new week_withdays(week[j], "00");
 
-      }
-      else if ((start != month[m] + 1))
-        {
-          if (start <= 9)
-          {
-            console.log(start);
-            var weekday = new week_withdays(week[j], "0" + start);
-          }
-           else
-           {
-             console.log(start);
-            var weekday = new week_withdays(week[j], start);
-           }
-          start++;
-          stack1.pushing(weekday);
-          qweek.enqueue(stack1);
+        document.write("&emsp;&emsp;&emsp;");
+
+
+      } else if ((start != month[m] + 1)) {
+        if (start <= 9) {
+          console.log(start);
+          var weekday = new week_withdays(week[j], "0" + start);
+        } else {
+          console.log(start);
+          var weekday = new week_withdays(week[j], start);
         }
-      else { break;}
+        start++;
+        stack1.pushing(weekday);
+        qweek.enqueue(stack1);
+      } else {
+        break;
+      }
 
 
     }

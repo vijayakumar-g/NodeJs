@@ -15,24 +15,23 @@ var addressbook = {
 };
 var contacts = [];
 
-function create()
-{
+function create() {
   var first_name = document.getElementById("fname").value;
-  var last_name= document.getElementById("lname").value;
-  var add= document.getElementById("address").value;
-  var cit= document.getElementById("city").value;
-  var sta= document.getElementById("state").value;
-  var zp= document.getElementById("zip").value;
-  var phone_no= document.getElementById("phone_no").value;
+  var last_name = document.getElementById("lname").value;
+  var add = document.getElementById("address").value;
+  var cit = document.getElementById("city").value;
+  var sta = document.getElementById("state").value;
+  var zp = document.getElementById("zip").value;
+  var phone_no = document.getElementById("phone_no").value;
   data.Address.push({
-      "fname": first_name,
-      "lname":last_name,
-      "address": add,
-      "city": cit,
-      "state": sta,
-      "zip":zp,
-      "mobile":phone_no
-   });
+    "fname": first_name,
+    "lname": last_name,
+    "address": add,
+    "city": cit,
+    "state": sta,
+    "zip": zp,
+    "mobile": phone_no
+  });
 }
 
 function delete_contact(First_name) {
@@ -69,6 +68,7 @@ function Display_Contact() {
     }
   }
 }
+
 function Sort_contact() {
   var i, j;
   for (var i = 0; i < data.Address.length - 1; i++)

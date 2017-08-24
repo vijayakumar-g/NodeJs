@@ -1,4 +1,5 @@
-var value =process.argv.splice(2);
+var val = process.argv.splice(2);
+var value = val.toString();
 var size = value.length;
 var flag = 0;
 
@@ -24,7 +25,9 @@ dequeue.enqueueAtFront = function(value) {
     dequeue.front.next = node;
     dequeue.front = node;
   }
+
   return node.value;
+
 }
 /*adding the element to the node at rear
 checking whether the node add to be the first node of the element
@@ -34,11 +37,13 @@ dequeue.enqueueAtRear = function(value) {
   if (dequeue.rear == null) {
     dequeue.rear = node;
     dequeue.front = node;
+
   } else {
     node.next = dequeue.rear;
     dequeue.rear = node;
 
   }
+  //console.log(this.rear.value);
   return node.value;
 }
 /*checking for the palindrome by enqueing at both ends and
@@ -48,13 +53,12 @@ for (i = 0, j = size - 1; i <= size, j >= 0; i++, j--) {
     continue;
     flag == 0;
   } else {
-    flag=1;
+    flag = 1;
     break;
   }
 }
 if (flag == 0) {
   console.log(value + " is a palindrome ");
-}
-else {
+} else {
   console.log(value + " is not a palindrome");
 }
