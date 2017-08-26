@@ -49,7 +49,7 @@ function list() {
     return obj;
   }
 
-  this.print = function() {
+  this.display = function() {
     var string = '';
     var current = this.head;
     while (current) {
@@ -96,7 +96,7 @@ function Card(suit, rank) {
 //player object
 function Player() {
   this.queue = new Queue();
-  this.sort = function() {
+  this.sorting = function() {
 
     for (i = this.queue.length; i > 0; i--) {
       var current = this.queue.front;
@@ -125,7 +125,7 @@ function compare(a, b) {
   else return 2;
 }
 //function to chk distinct cards
-function distinct(card, game) {
+function different(card, game) {
   var temp = game.q.head;
   while (temp != null) {
     var temp2 = temp.obj.queue.front;
@@ -155,32 +155,38 @@ function print(game) {
   }
 }
 //function to shuffle cards and print
-function shuffle() {
+function shuffle()
+{
   var game = new Queue();
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < 4; i++)
+  {
     player = new Player();
     game.enq(player);
-    for (var j = 0; j < 9; j++) {
+    for (var j = 0; j < 9; j++)
+     {
       flag = false;
-      while (flag == false) {
+      while (flag == false)
+      {
         var rank = Math.floor((Math.random() * 100) % 13);
         var suit = Math.floor((Math.random() * 10) % 4);
         card = new Card(suits[suit], ranks[rank]);
-        if (distinct(card, game) == true) {
+        if (different(card, game) == true)
+        {
           game.rear.obj.queue.enq(card);
           flag = true;
         }
       }
     }
   }
-  console.log("before sorting");
+  console.log("Before ranking the cards");
   print(game);
   var temp = game.front;
-  while (temp != null) {
-    temp.obj.queue.q = temp.obj.sort();
+  while (temp != null)
+  {
+    temp.obj.queue.q = temp.obj.sorting();
     temp = temp.next;
   }
-  console.log("After sorting");
+  console.log("After Ranking the cards");
   print(game);
 }
 //calling function
