@@ -45,7 +45,7 @@ db.collection("Intellect").deleteMany(del,function(err,d)
 
 /*    //searching contact
 var query={name:"bharathi"};
-db.collection("Intellect").find(query,{_id:false,name:true,company:true}).toArray(function(err, result)
+db.collection("Intellect").find(query,{_id:false,name:true,company:true}).toArray(function(err, result)  
 {
   if(err)throw err;
   if(result)console.log(result);
