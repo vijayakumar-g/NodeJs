@@ -1,0 +1,46 @@
+<html>
+<head>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+  var socket=io();
+  function createUser()
+  {
+    socket.emit('adduser',document.getElementById('name').value);
+  }
+  var user;
+  socket.on('useradded',function(data)
+{
+  user=data.username;
+  document.body.innerHTML='<p>CHAT WITH YOUR FRIENDS</P><input type="text" name="msg" id="msg">\
+    <button type="button" onclick="sendmessage()" id="send">Send</button>\
+    <div id="message"></div>';
+
+});
+  socket.on('userexists',function(data)
+{
+  document.getElementById('error').innerHTML=data;
+});
+
+function sendmessage()
+{
+  var information=document.getElementById('msg').value;
+  if(information)
+  {
+    socket.emit('newmsg',{info:information, user:user});
+  }
+}
+socket.on('everyone',function(data)
+{
+  if(user)
+  {
+    document.getElementById('message').innerHTML="<div><b>"+data.user+"</b>:"+data.info+"<div>";
+  }
+});
+  </script>
+</head>
+<body>
+<div id="error" ></div>
+<input type="text" id="name" name="name" placeholder="Username">
+<button type="button" name="button" onclick="createUser()">Create</button>
+</body>
+</html>
