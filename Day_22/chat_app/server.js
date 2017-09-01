@@ -1,36 +1,29 @@
-var app=require('express')();
-var http=require('http').Server(app);
-var io=require('socket.io')(http);
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-app.get('/',function(req,res)
-{
-  res.sendfile("index.html");
-})
-var users=[];
-io.on('connection',function(socket)
-{
-  socket.on('adduser',function(data)
-{
-  //console.log(users.indexOf(data));
-  if(users.indexOf(data)>-1)
-  {
-      socket.emit("userexists","user already exists try new username")
-  }
-  else
-  {
+app.get('/', function(req, res) {
+  res.sendfile('index.html');
+});
+users = [];
+io.on('connection', function(socket) {
+  console.log('A user connected');
+  socket.on('setUsername', function(data) {
+    console.log(data);
+    if (users.indexOf(data) > -1) {
+      socket.emit('userExists', data + ' username is taken! Try some other username.');
+    } else {
       users.push(data);
-      console.log("user added");
-      socket.emit('useradded',{username:data});
-  }
+      socket.emit('userSet', {
+        username: data
+      });
+    }
+  });
+  socket.on('msg', function(data) {
+    //Send message to everyone
+    io.sockets.emit('newmsg', data);
+  })
 });
-socket.on('newmsg',function(data)
-{
-  console.log("message is coming");
-  io.sockets.emit('everyone',data);
-});
-});
-
-http.listen(3005,function()
-{
-  console.log("server is listening to port: 3005");
+http.listen(3002 , function() {
+  console.log('listening on localhost:3005');
 });

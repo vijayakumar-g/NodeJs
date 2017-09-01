@@ -1,46 +1,36 @@
 <html>
-<head>
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-  var socket=io();
-  function createUser()
-  {
-    socket.emit('adduser',document.getElementById('name').value);
-  }
-  var user;
-  socket.on('useradded',function(data)
-{
-  user=data.username;
-  document.body.innerHTML='<p>CHAT WITH YOUR FRIENDS</P><input type="text" name="msg" id="msg">\
-    <button type="button" onclick="sendmessage()" id="send">Send</button>\
-    <div id="message"></div>';
-
-});
-  socket.on('userexists',function(data)
-{
-  document.getElementById('error').innerHTML=data;
-});
-
-function sendmessage()
-{
-  var information=document.getElementById('msg').value;
-  if(information)
-  {
-    socket.emit('newmsg',{info:information, user:user});
-  }
-}
-socket.on('everyone',function(data)
-{
-  if(user)
-  {
-    document.getElementById('message').innerHTML="<div><b>"+data.user+"</b>:"+data.info+"<div>";
-  }
-});
-  </script>
-</head>
-<body>
-<div id="error" ></div>
-<input type="text" id="name" name="name" placeholder="Username">
-<button type="button" name="button" onclick="createUser()">Create</button>
-</body>
+    <head><title>Messenger</title></head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+        function setUsername(){
+            socket.emit('setUsername', document.getElementById('name').value);
+        };
+        var user;
+        socket.on('userExists', function(data){
+            document.getElementById('error-container').innerHTML = data;
+        });
+        socket.on('userSet', function(data){
+            user = data.username;
+            document.body.innerHTML = '<input type="text" id="message">\
+            <button type="button" name="button" onclick="sendMessage()">Send</button>\
+            <div id="message-container"></div>';
+        });
+        function sendMessage(){
+            var msg = document.getElementById('message').value;
+            if(msg){
+                socket.emit('msg', {message: msg, user: user});
+            }
+        }
+        socket.on('newmsg', function(data){
+            if(user){
+                document.getElementById('message-container').innerHTML += '<div><b>' + data.user + '</b>: ' + data.message + '</div>'
+            }
+        })
+    </script>
+    <body>
+        <div id="error-container"></div>
+        <input id="name" type="text" name="name" value="" placeholder="Enter your name!">
+        <button type="button" name="button" onclick="setUsername()">Let me chat!</button>
+    </body>
 </html>
