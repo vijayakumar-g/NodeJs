@@ -1,6 +1,8 @@
 var socket = io();
 var currentdate = new Date();
 var uname = localStorage.getItem("uname");
+var name=capitalizeFirstLetter(uname);
+console.log(uname);
 
 function sendMessage()
 {
@@ -28,5 +30,23 @@ socket.on('newmsg', function(data) {
 
 function display()
 {
-  document.body.innerHTML="database"
+  document.getElementById("history").innerHTML="database";
+}
+function capitalizeFirstLetter(string)
+{
+    var name=string[0].toUpperCase() + string.slice(1);
+    document.getElementById("status").innerHTML=name+"<br>Online";
+    var promise = $.ajax({
+      url: '/get',
+      type: 'GET'
+    }).done(function(data)
+     {
+       for(i=0; i<data.length; i++)
+       {
+//         document.getElementById('message-container').innerHTML += '<span class="label label-default"><b>' + data[i].user + '</b>: ' + data[i].message + '</span></div>'
+       }
+  })
+    console.log(promise);
+    return true;
+
 }

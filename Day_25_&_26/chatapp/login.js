@@ -15,8 +15,9 @@ function login() {
     }
   }).done(function(result) {
     console.log(result);
-    if (result.data == "false") {
-      alert(result.name + " Login Successfully");
+    if (result.data == "false")
+    {
+      //alert(result.name + " Login Successfully");
       socket.emit("setUsername", result.name);
       socket.on('name', function(data) {
         uname = data.username;
@@ -25,10 +26,10 @@ function login() {
       })
     }
     if (result.data == "falsepwd") {
-      alert("Incorrect Password");
+      document.getElementById('error-container').innerHTML="Wrong Password! Try Again";
     }
     if (result.data == "true") {
-      alert("New User Signup");
+        document.getElementById('error-container').innerHTML="New User Signup";
     }
   })
 }

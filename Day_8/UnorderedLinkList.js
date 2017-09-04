@@ -16,15 +16,21 @@ function unorderedList() {
 /*function used to traverse all the nodes in the ordered list
 and print them in output txt file*/
 unorderedList.output = function() {
-  var ws = fs.createWriteStream("output.txt");
-  currentNode = this.head;
-  while (currentNode) {
-    var data = currentNode.value;
-    var space = " ";
-    ws.write(data, 'UTF8');
-    ws.write(space, 'UTF8');
-    currentNode = currentNode.next;
+  try {
+    var ws = fs.createWriteStream("output.txt");
+    currentNode = this.head;
+    while (currentNode) {
+      var data = currentNode.value;
+      var space = " ";
+      ws.write(data, 'UTF8');
+      ws.write(space, 'UTF8');
+      currentNode = currentNode.next;
+    }
   }
+  catch (e) {
+    console.log(e);
+  }
+
   ws.end();
 }
 /*display the node elements in the unordered list */
@@ -180,6 +186,7 @@ var read=process.argv.splice(2);
 // unorderedList.search(read);
 // unorderedList.search(read);
 // unorderedList.display(Node);
-unorderedList.insertAtPos("suyesh",4);
-unorderedList.remove("vijay");
+unorderedList.insertAtPos(read,4);
+//unorderedList.remove(read);
 unorderedList.display();
+unorderedList.output();

@@ -12,11 +12,11 @@ function enqueue(id, name, amount) {
       rear = rear + 1;
       front = front + 1;
       queue[front] = name;
-      bankbalance = bankbalance + parseInt(amount);
+      bankbalance  += parseInt(amount);
     } else {
       front = front + 1;
       queue[front] = name;
-      bankbalance = bankbalance + parseInt(amount);
+      bankbalance += parseInt(amount);
     }
 
   }
@@ -26,11 +26,11 @@ function enqueue(id, name, amount) {
       rear = rear + 1;
       front = front + 1;
       queue[front] == name;
-      bankbalance = bankbalance - parseInt(amount);
+      bankbalance-= parseInt(amount);
     } else {
       front = front + 1;
       queue[front] = name;
-      bankbalance = bankbalance - parseInt(amount);
+      bankbalance -= parseInt(amount);
     }
   }
 }
@@ -50,7 +50,8 @@ function dequeue() {
 function read() {
 
   var size = document.getElementById("n").value;
-  bankbalance = prompt("Enter the Bank Balance @ initial", "");
+  bankbalance = parseInt(prompt("Enter the Bank Balance @ initial", ""));
+
   for (i = 1; i <= size; i++) {
     var id = prompt("enter the Transaction Id Person " + i + ":", "");
     var name = prompt("enter the name of Person " + i + ":", "");
@@ -65,5 +66,5 @@ function read() {
   dequeue();
   document.write("Persons In the Queue<br>");
   document.write(queue);
-  document.write("<br>BankBalance:" + bankbalance);
+  document.write("<br>Total Deposited Amount:" + bankbalance);
 }

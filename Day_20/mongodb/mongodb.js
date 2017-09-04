@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/database";
+var url = "mongodb://localhost:27017/chatApp";
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
@@ -45,7 +45,7 @@ db.collection("Intellect").deleteMany(del,function(err,d)
 
 /*    //searching contact
 var query={name:"bharathi"};
-db.collection("Intellect").find(query,{_id:false,name:true,company:true}).toArray(function(err, result)  
+db.collection("Intellect").find(query,{_id:false,name:true,company:true}).toArray(function(err, result)
 {
   if(err)throw err;
   if(result)console.log(result);
@@ -66,18 +66,18 @@ db.collection("Intellect").find().sort(order).toArray(function(err,sorted)
 //   if(err)throw err;
 //   //console.log(result.name+" "+result.company);
 // });
-// db.collection("Intellect").find({}, {_id:false, name:true,company:true}).toArray(function(err,f)
-// {
-//   if(err)throw err;
-//   console.log(f);
-// });
-db.collection("Intellect").drop(function (err,result)
+db.collection("ChatHistory").find({}, {_id:false, message:true,user:true}).toArray(function(err,f)
 {
-  if(err)
-  console.log(err);;
-  if(result)
-  console.log("Deleted");
+  if(err)throw err;
+  console.log(f);
 });
+// db.collection("Intellect").drop(function (err,result)
+// {
+//   if(err)
+//   console.log(err);;
+//   if(result)
+//   console.log("Deleted");
+// });
 // db.collection("Intellect").find({}, {_id:false, name:true,}).toArray(function(err,f)
 // {
 //   if(err)throw err;

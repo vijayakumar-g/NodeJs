@@ -1,22 +1,23 @@
-//finding the square root of the given number 
+//finding the square root of the given number
 var square = function(c) {
   var t = c;
   var epsilon = Math.exp(-15);
-  while (Math.abs(t - (c / t)) > (epsilon * t)) 
+  while (Math.abs(t - (c / t)) > (epsilon * t))
   {
-    t = (((c / t) + t) / 2); 
+    t = (((c / t) + t) / 2);
   }
-  var result = Math.ceil(t); 
+  var result = Math.ceil(t);
   return result;
 }
 
-//displaying the array value in reverse 
-function display(arr) 
+//displaying the array value in reverse
+function display(arr)
 {
   var size = arr.length;
   var arr2 = [];
-  for (i = size; i >= 0; i--) {
-    if (typeof arr[i] === "undefined") {
+  for (i = size-1; i >= 0; i--) {
+    console.log(arr[i], i,"COMMING");
+    if (typeof arr === "undefined" && typeof arr[i] === "undefined") {
       var c = 0;
     } else {
       document.write(arr[i] + ", ");
@@ -31,22 +32,22 @@ var toBinary = function(decimal) {
   var quotient, remainder;
    var i = 0;
   //condition is checked and loop continues till decimal value becomes;
-  while (decimal > 0 && decimal > 1) 
+  while (decimal > 0 && decimal > 1)
     {
-    remainder = decimal % 2; 
-    quotient = decimal / 2; 
+    remainder = decimal % 2;
+    quotient = decimal / 2;
     decimal = quotient;
-    arr[i] = parseInt(Math.floor(remainder)); 
+    arr[i] = parseInt(Math.floor(remainder));
     i++;
   }
   var size = arr.length;
-  var s = square(size); 
+  var s = square(size);
 
   var r = Math.pow(2, s);
 // padding loop
-  for (i = 0; i < r; i++) 
+  for (i = 0; i < r; i++)
   {
-    if (arr[i] == null) 
+    if (arr[i] == null)
     {
       arr[i] = 0;
     }
@@ -58,6 +59,7 @@ var toBinary = function(decimal) {
 /*reading the user input from html*/
 function read() {
   var decimal = document.getElementById("dec").value;
-  var result = toBinary(decimal); 
-  document.write(result);
+  var result = toBinary(decimal);
+  // console.log(result);
+  // document.write(result);
 }

@@ -23,7 +23,7 @@ MongoClient.connect(url, function(err, db) {
 var user;
 var chatdb=[];
   /*making the folder static to update the changes over there*/
-  app.use("/", express.static('./sample'));
+  app.use("/", express.static('./chatapp'));
 
   /*posting the details sent by the client side and update
   those details in the file for the future process*/
@@ -93,7 +93,7 @@ var chatdb=[];
   });
   app.get('/get', function(req, res)
   {
-    db.collection("ChatHistory").find({}, {_id:false, message:true,user:true}).toArray(function(err,data)
+    db.collection("ChatHistory").find({}, {_id:false, message:true,user:true,time:true}).toArray(function(err,data)
     {
       if(err)throw err;
       res.send(data);

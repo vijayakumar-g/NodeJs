@@ -2,7 +2,7 @@
 
 <head>
   <title>Messenger</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="jquery.min.js"></script>
   <script src="socket.io.js"></script>
   <script src="bootstrap.min.js"></script>
@@ -17,12 +17,13 @@
     <form id="form1">
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-       <input type="text" id="name" name="name" class="form-control" placeholder="Username">
+       <input type="text" id="name" name="name" class="form-control" placeholder="Username" required>
      </div><br>
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password">
+        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" required>
       </div><br>
+      <div id="error-container"></div>
      <button type="button" id="signin" class="btn btn-info">Sign In</button>&nbsp;
      <button type="button" id="signup" class="btn btn-info">Sign Up</button>
    </form>
