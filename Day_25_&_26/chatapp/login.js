@@ -1,7 +1,7 @@
 var socket = io();
 /* onclick respective button id call respective the functions */
 $('#signin').click(login);
-/*submit handler is used to post the values
+/*login is used to post the values
 that are entered in the form by the user
 and that values are posted to the file using the post method */
 function login() {
@@ -15,9 +15,7 @@ function login() {
     }
   }).done(function(result) {
     console.log(result);
-    if (result.data == "false")
-    {
-      //alert(result.name + " Login Successfully");
+    if (result.data == "false") {
       socket.emit("setUsername", result.name);
       socket.on('name', function(data) {
         uname = data.username;
@@ -26,10 +24,10 @@ function login() {
       })
     }
     if (result.data == "falsepwd") {
-      document.getElementById('error-container').innerHTML="Wrong Password! Try Again";
+      document.getElementById('error-container').innerHTML = "Wrong Password! Try Again";
     }
     if (result.data == "true") {
-        document.getElementById('error-container').innerHTML="New User Signup";
+      document.getElementById('error-container').innerHTML = "New User Signup";
     }
   })
 }

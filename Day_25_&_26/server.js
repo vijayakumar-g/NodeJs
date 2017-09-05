@@ -8,11 +8,15 @@ var app = express();
 /**requiring fs module**/
 var fs = require('fs');
 
+/**requiring http module**/
 var http = require('http').Server(app);
 
+/**requiring socket.io module**/
 var io = require('socket.io')(http);
 
+
 var PORT = process.env.PORT || 3005;
+/**mongo db is connected to store the database**/
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/chatApp";
 MongoClient.connect(url, function(err, db) {
@@ -20,13 +24,13 @@ MongoClient.connect(url, function(err, db) {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
-var user;
-var chatdb=[];
+  var user;
+  var chatdb = [];
   /*making the folder static to update the changes over there*/
   app.use("/", express.static('./chatapp'));
 
   /*posting the details sent by the client side and update
-  those details in the file for the future process*/
+  those details in the database for the future process*/
 
   app.post('/logging', function(req, res) {
     res.setHeader("Content-Type", "application/json");
@@ -57,6 +61,8 @@ var chatdb=[];
     });
   });
 
+  /**signing when the user enters the system and verifiying the username and
+  password in the database**/
   app.post('/signingin', function(req, res) {
     res.setHeader("Content-Type", "application/json");
     var result = {
@@ -91,18 +97,23 @@ var chatdb=[];
       }
     });
   });
-  app.get('/get', function(req, res)
-  {
-    db.collection("ChatHistory").find({}, {_id:false, message:true,user:true,time:true}).toArray(function(err,data)
-    {
-      if(err)throw err;
+  /*details of the old messages are being read by the usr and are send it
+  to the user display**/
+  app.get('/get', function(req, res) {
+    db.collection("ChatHistory").find({}, {
+      _id: false,
+      message: true,
+      user: true,
+      time: true
+    }).toArray(function(err, data) {
+      if (err) throw err;
       res.send(data);
     });
   });
   io.on('connection', function(socket) {
     socket.on('setUsername', function(data) {
       socket.emit('name', {
-      username: data
+        username: data
       });
     });
     socket.on('msg', function(data) {

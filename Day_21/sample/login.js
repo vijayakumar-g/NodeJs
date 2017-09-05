@@ -1,6 +1,6 @@
 /* onclick respective button id call respective the functions */
 $('#signin').click(login);
-$('#signup').click(signup);
+$('#signup').click(validate);
 $('#remove').click(remove);
 $('#update').click(update);
 
@@ -96,4 +96,38 @@ function login()
     alert("New User Signup");
   }
 })
+}
+function validate()
+{
+  var name=document.getElementById("name").value;
+  var pwd=document.getElementById("pwd").value;
+  var pattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,8}$/;
+  if(name.length==0)
+  {
+    document.getElementById("error").innerHTML="Not valid user name";
+  }
+  else if(name.length<5)
+  {
+    document.getElementById("error").innerHTML="Minimum Five Characters";
+  }
+  else if(/^[a-zA-Z0-9- ]*$/.test(name) == false)
+  {
+      document.getElementById("error").innerHTML="Username contains illegal characters";
+  }
+  else if(pwd.length==0)
+  {
+    document.getElementById("error").innerHTML="Not valid password";
+  }
+  else if(pwd.length<6)
+  {
+    document.getElementById("error").innerHTML="Password length minimum 6 characters";
+  }
+  else if(!pattern.test(pwd))
+  {
+  document.getElementById("error").innerHTML="Password should contain atleast one number and one special character";
+  }
+  else
+  {
+    signup();
+  }
 }
