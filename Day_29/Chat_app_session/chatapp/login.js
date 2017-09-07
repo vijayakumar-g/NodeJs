@@ -4,7 +4,8 @@ $('#signin').click(login);
 /*login is used to post the values
 that are entered in the form by the user
 and that values are posted to the file using the post method */
-function login() {
+function login()
+{
   var testform = document.getElementById('form1');
   $.ajax({
     url: '/signingin',

@@ -72,8 +72,8 @@ MongoClient.connect(url, function(err, db) {
   /**signing when the user enters the system and verifiying the username and
   password in the database**/
   app.post('/signingin', function(req, res) {
-    sess = req.session;
-    sess.name = req.body.Name;
+    req.session.name = req.body.Name;
+    req.session.cookies={expires:60*60};
     res.setHeader("Content-Type", "application/json");
     var result = {
       status: true,
@@ -108,33 +108,30 @@ MongoClient.connect(url, function(err, db) {
   });
   /*details of the old messages are being read by the usr and are send it
   to the user display**/
-  app.get('/get', function(req, res)
+  app.get('/checkUserLogin', function(req, res)
   {
-
-      db.collection("ChatHistory").find({}, {
-      _id: false,
-      message: true,
-      user: true,
-      time: true
-    }).toArray(function(err, data) {
-      if (err) throw err;
-      res.send(data);
-    });
-  });
-
-  app.get('/', function(req, res)
-  {
-
-    console.log("its calling me 1");
-    sess = req.session;
-    if (sess.name)
+      var session=req.session;
+      if(session.name)
     {
-      res.send(sess.name);
+      res.json({name:session.name,isLogin:true});
     }
     else
     {
-      res.render('index.html');
+      res.json({name:session.name,isLogin:false});
     }
+  });
+
+app.get('/history',function(req,res)
+{
+  db.collection("ChatHistory").find({}, {
+  _id: false,
+  message: true,
+  user: true,
+  time: true
+}).toArray(function(err, data) {
+  if (err) throw err;
+  res.send(data);
+  });
 });
 io.on('connection', function(socket) {
     socket.on('setUsername', function(data) {

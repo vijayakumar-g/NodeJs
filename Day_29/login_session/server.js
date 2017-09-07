@@ -102,7 +102,7 @@ app.get('/', function(req, res)
   sess = req.session;
   if (sess.name)
   {
-    res.redirect('/admin');
+    res.render('chat.html');
   } else
   {
     res.render('index.html');

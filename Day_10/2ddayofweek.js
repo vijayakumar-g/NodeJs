@@ -49,9 +49,10 @@ var day = Math.floor((2 + ((153 * (m0) + 2) / 5) + (365 * x) - 32045));
 day = day % 7;
 //for the array no of week of the month week is taken in an account
 var dd = months[month];
-var week = dd % 7;
+console.log(dd);
+var week = Math.ceil(dd / 7);
+console.log(week);
 var weeks = week + 1;
-console.log(weeks);
 //creating a array with the 2d to display the calendar
 var cal = new Array(weeks);
 
