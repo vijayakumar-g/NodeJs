@@ -24,7 +24,8 @@ for (i = 0; i < 52; i++) {
   deck_of_cards[index] = temp;
 }
 /*the shuffle card are stored in a shuffle manner for each player*/
-for (i = 0; i < 52; i++) {
+for (i = 0; i < 52; i++)
+{
   array_suits[i] = card_suits[Math.floor(deck_of_cards[i] / 13)];
   array_rank[i] = card_rank[deck_of_cards[i] % 13];
 
