@@ -11,8 +11,8 @@ function login()
     url: '/signingin',
     type: 'POST',
     data: {
-      Name: form1.name.value,
-      Password: form1.pwd.value
+      username: form1.name.value,
+      password: form1.pwd.value
     }
   }).done(function(result) {
     console.log(result);

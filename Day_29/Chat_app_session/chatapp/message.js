@@ -15,7 +15,7 @@ and also broadcast the msg using socket broadcast**/
 
 function sendMessage()
 {
-var uname = localStorage.getItem("uname");
+ var uname = localStorage.getItem("uname");
   var msg = document.getElementById('message').value;
   var hours = currentdate.getHours();
   var minutes = currentdate.getMinutes();
@@ -58,8 +58,8 @@ function session()
     headers:{"Content-Type":"application/json"}
   }).done(function(data)
   {
-      debugger;
     var name=data.name;
+    //var name = name.charAt(0).toUpperCase() + name.slice(1);
     if(data.isLogin)
     {
     document.getElementById("status").innerHTML = name + "<br>Online";
@@ -87,5 +87,18 @@ function database()
     {
      document.getElementById('history').innerHTML += '<div><h4><span class="label label-default"><b>' + data[i].user + '</b>: ' + data[i].message + '</span></h4>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;' + data[i].time + '</div>';
     }
+});
+}
+function logout()
+{
+    var promise = $.ajax({
+    url: '/logout',
+    type: 'GET',
+  }).done(function(data)
+{
+  if(data.status==true)
+  {
+    window.location.href="index.html";
+  }
 });
 }
