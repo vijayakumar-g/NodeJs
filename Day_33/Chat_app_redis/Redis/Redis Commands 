@@ -1,0 +1,11 @@
+#start the redis server 
+
+sudo systemctl start redis
+
+#status of the redis server 
+
+sudo systemctl status redis
+
+#checking with redis instance 
+
+redis-cli
