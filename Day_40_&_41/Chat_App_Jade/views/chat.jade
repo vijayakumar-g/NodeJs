@@ -1,0 +1,39 @@
+html
+  head
+    title Messenger
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+  link(rel="stylesheet", href="../css/chat.css")
+  script(src="../css/jquery.min.js")
+  script(src="../css/socket.io.js")
+  script(src="../css/bootstrap.min.js")
+  script(type='text/javascript').
+  script.
+    setTimeout(function() {
+    window.location.reload(1);
+    }, 100000);
+  body(onload='database()')
+    div
+      .container
+         .panel.panel-primary
+            #status.panel-heading
+              .pull-right
+                button.btn.btn-info(onclick='logout()') Logout
+              span
+                img.img-circle(src='../icons/default_avatar_male.jpg',title='Male User',width='30',height='30',alt='User Avatar')
+            #history.panel-body
+            .panel-footer
+              .input-group
+                input#btn-input.form-control.input-sm(type='text',placeholder='Type your message here...')
+                span.input-group-btn
+                  button#btn-chat.btn.btn-warning.btn-sm(onclick='sendMessage()') Send
+      #online-status.panel.panel-primary
+        #heading.panel-heading
+          br
+          span
+            img.img-circle(src='https://png.icons8.com/chat/office/16',title="Chat",width="26",height="26",alt="User Avatar")
+            | MESSENGER
+        #online-users.panel-body
+          ul#contact-list.list-group
+script(src='../js/signin.js')
+script(src='../js/signup.js')
+script(src='../js/message.js')

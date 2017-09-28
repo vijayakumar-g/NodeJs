@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+    table,
+    th,
+    td {
+      margin: 10px 0;
+      border: solid 1px #333;
+      padding: 2px 4px;
+      font: 15px Verdana;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  input[type=text] {
+      width: 20%;
+      height: 6%;
+      padding: 10px 5px;
+      margin: 8px, 0;
+      border-radius: 1px;
+    }
+  }
+  input[type=submit] {
+    width: 10%;
+    height: 6%;
+    background-color: #808080;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #status
+  {
+    position:fixed;
+    left:45%;
+    font: 15px Verdana;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+
+<body onload="updateindex()">
+  <center>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">CONTACTS</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">NEW</a></li>
+          <li><a href="Display.html">DISPLAY</a></li>
+          <li><a href="Search.html">SEARCH</a></li>
+          <li><a href="Delete.html">DELETE</a></li>
+          <li><a href="Edit.html">EDIT</a></li>
+        </ul>
+      </div>
+    </nav>
+  </center>
+  <center>
+    <form id="search">
+      Search:<input type="text" id="fname" name="fname" autocomplete="off">
+      <button type="button" onclick="search()">SEARCH</button>
+    </form>
+  </center>
+  <div id='status'></div><br>
+  <center>
+    <div id="div1"><div>
+    </body>
+<script src="form.js"></script>
+<script src="autocomplete.js"></script>
+
+</html>

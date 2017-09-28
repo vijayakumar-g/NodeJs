@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .row
+        .span12
+            .hero-unit
+                h1 Searchly Sample Node.js Application.
+
+                p
+
+                p This example illustrates basic search features of Searchly.
+
+                p Type "Jack" or "John" to search box and hit enter for sample search results.
+
+            if result
+                p= result

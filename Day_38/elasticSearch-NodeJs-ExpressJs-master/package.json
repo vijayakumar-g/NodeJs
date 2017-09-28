@@ -1,0 +1,21 @@
+{
+    "name": "searchly-nodejs-sample",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.5.2",
+        "elasticsearch": "^13.3.1",
+        "errorhandler": "^1.5.0",
+        "express": "^4.8.0",
+        "jade": "^1.11.0",
+        "method-override": "^2.3.9",
+        "morgan": "^1.8.2",
+        "multer": "^0.1.8"
+    },
+    "engines": {
+        "node": ">=0.10.32"
+    }
+}

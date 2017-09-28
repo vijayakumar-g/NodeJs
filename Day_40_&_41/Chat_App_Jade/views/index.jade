@@ -1,0 +1,45 @@
+html
+  head
+    title Messenger
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../css/chat.css')
+    script(src='../css/jquery.min.js')
+    script(src='../css/socket.io.js')
+    script(src='../css/bootstrap.min.js')
+  style.
+    #error-container {
+    color: #FF0000;
+    }
+  body
+    br
+    br
+    br
+    center
+      .panel.panel-primary(style='max-width: 350')
+        .panel-heading(style='max-height: 50;') LOGIN
+        #index-heading.panel-body(style='max-height: 300 overflow:hidden')
+          br
+          form#form1
+            .input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input#name.form-control(type='text', data-toggle='tooltip', data-trigger='manual', data-title='Caps lock is on', name='name', placeholder='Username', required='')
+            br
+            .input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-lock
+              input#pwd.form-control(type='password', data-toggle='tooltip', data-trigger='manual', data-title='Caps lock is on', name='pwd', placeholder='Password', required='')
+            br
+            #error-container
+            br
+            button#signin.btn.btn-info(type='button') Sign In
+            button#signup.btn.btn-info(type='button') Sign Up
+          a(href='/new_pwd')
+            u
+              | Forgot Password?
+              u
+      center
+        #content
+  script(src='../js/signin.js')
+  script(src='../js/signup.js')
+  script(src='../js/message.js')

@@ -1,0 +1,66 @@
+[{
+  "firstName": "ajith",
+  "lastName": "Kumar",
+  "address": "arapalayam",
+  "city": "madurai",
+  "state": "TamilNadu",
+  "zip": "627001",
+  "mobile": "7010068947"
+},{
+  "firstName": "ajithesh",
+  "lastName": "Kumar",
+  "address": "arapalayam",
+  "city": "madurai",
+  "state": "TamilNadu",
+  "zip": "627001",
+  "mobile": "7010068947"
+},{
+  "firstName": "akashay",
+  "lastName": "Kumar",
+  "address": "arapalayam",
+  "city": "madurai",
+  "state": "TamilNadu",
+  "zip": "627001",
+  "mobile": "7010068947"
+},{
+  "firstName": "akash",
+  "lastName": "Kumar",
+  "address": "arapalayam",
+  "city": "madurai",
+  "state": "TamilNadu",
+  "zip": "627001",
+  "mobile": "7010068947"
+},{
+  "firstName": "suyaesh",
+  "lastName": "kumar",
+  "address": "govandi",
+  "city": "mumbai",
+  "state": "maharstra",
+  "zip": "600096",
+  "mobile": "7010068947"
+}, {
+  "firstName": "vijay",
+  "lastName": "Kumar",
+  "address": "Palyamkottai",
+  "city": "Tirunelveli",
+  "state": "TamilNadu",
+  "zip": "627002",
+  "mobile": "9750786991"
+}, {
+  "firstName": "bharathi",
+  "lastName": "raj",
+  "address": "Palyamkottai",
+  "city": "Tirunelveli",
+  "state": "TamilNadu",
+  "zip": "627002",
+  "mobile": "9750786991"
+}, {
+  "firstName": "aniketh",
+  "lastName": "bondada",
+  "address": "vizag",
+  "city": "hyderabad",
+  "state": "AndhraPradesh",
+  "zip": "627002",
+  "mobile": "9750786991"
+}
+]
